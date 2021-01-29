@@ -1,0 +1,53 @@
+@import "./utils.scss";
+.page-container {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .page-not-found-image {
+        display: block;
+        width: 80%;
+    }
+    .page-not-found-text {
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom :1rem;
+    }
+    .btn {
+        text-decoration: none;
+        background-color: $secondary;
+        border: 1px solid $secondary;
+        color: $primary;
+        padding: 1rem;
+        font-variant: small-caps;
+        box-shadow: 0 0 1rem $black;
+        transition: all ease-in-out .5s;
+        &:hover {
+            background-color: transparent;
+            color: $secondary;
+            box-shadow: none;
+        }
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .page-container {
+        padding: 2rem 5rem;
+        .page-not-found-image {
+            width: 60%;
+        }
+    }
+    
+}
+
+@media only screen and (min-width:992px) {
+    .page-container {
+        padding: 2rem 10rem;
+        .page-not-found-image {
+            width: 40%;
+        }
+    }
+    
+}

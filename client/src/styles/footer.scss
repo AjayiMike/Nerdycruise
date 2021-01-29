@@ -1,0 +1,12 @@
+@import "./utils.scss";
+.footer {
+    width: 100%;
+    background-color: $primary;
+    color: $white;
+    text-align: center;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .8rem;
+}

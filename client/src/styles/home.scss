@@ -1,0 +1,97 @@
+@import "./utils.scss";
+
+.home-page {
+    overflow-x: hidden;
+}
+
+.section {
+    margin: 10rem auto;
+    overflow-x: hidden;
+    .image-container {
+        width: 80%;
+        margin: 2em auto;
+        .section-image {
+            width: 100%;
+        }
+    }
+    .text-container {
+        width: 80%;
+        margin: 1rem auto;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-align: center;
+            font-weight: 900;
+            letter-spacing: 5px;
+            font-size: 1.3rem;
+        }
+        p {
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            font-weight: 400;
+            
+            
+        }
+        .section-btn {
+            text-decoration: none;
+            border: 2px solid $primary;
+            color: $secondary;
+            margin: 1rem auto;
+            display: inline-block;
+            padding: 1em;
+            font-weight: 900;
+            font-size: 1rem;
+            transition: all ease-in-out .3s;
+            box-shadow: 0 0 5px $secondary;
+            .icon {
+                display: inline-block;
+                font-size: 1.5rem;
+                vertical-align: middle;
+                transition: all ease-in-out .3s;
+            }
+            &:hover {
+                border: 2px solid $secondary;
+                color: $black;
+                background-color: $secondary;
+                box-shadow: 0 0 5px $primary;
+                .icon {
+                    transform: translateX(.5rem)
+
+                }
+            }
+        }
+    }
+    &:nth-child(1) {
+        margin: 1rem auto;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .section {
+        width: 80%;
+        .image-container, .text-container {
+            width: 75%
+        }
+        .text-container {
+            h1 {
+                font-weight: 900;
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:992px) {
+    .section {
+        width: 75%;
+        .image-container{
+            width: 40%
+        }
+        .text-container {
+            width: 75%;
+        }
+    }
+}

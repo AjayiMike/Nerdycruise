@@ -1,0 +1,148 @@
+@import  "./utils.scss";
+.login-page {
+    width: 100%;
+    min-height: calc(100vh - 50px - 10rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .login-main-content {
+        width:65%;
+        .header {
+            color: $primary;
+            text-transform: uppercase;
+            text-shadow: 0 0 1px $secondary;
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .login-form {
+            width: 100%;
+            .formGroup {
+                width: 100%;
+                position: relative;
+                margin-top: 3rem;
+                label {
+                    position: absolute;
+                    bottom: .5rem;
+                    left: 1.5rem;
+                    opacity: .4;
+                    transition: all ease-in-out .3s;
+                    font-size: .8rem;
+                    cursor: text;
+                    z-index: -1;
+                }
+                input {
+                    width: 100%;
+                    border: none;
+                    background-color: transparent;
+                    border-bottom: 1px solid rgba($primary, .4);
+                    padding: .5rem .5rem .5rem 1.5rem;
+                    transition: all ease-in-out .3s;
+                    &:focus {
+                        border-color: rgba($primary, 1);
+                    }
+                }
+
+                .input-focus-label {
+                        bottom: 2rem;
+                        left: 0;
+                        opacity: 1;
+                        cursor: pointer;
+                        &::after {
+                            content: ":";
+                        }
+                }
+                .input-icon {
+                    font-weight: .8rem;
+                    position: absolute;
+                    bottom: .5rem;
+                    left: 0rem;
+                }
+
+                .err-message {
+                    color:$secondary;
+                    font-size: .7rem;
+                    position: absolute;
+                    bottom: -1rem;
+                    height: 1rem;
+                    display: none;
+                }
+                .err-message-show {
+                    display: block;
+                }
+            }
+            .submit-btn{
+                padding: .8rem;
+                border: 1px solid $primary;
+                border-radius: 4px;
+                margin: 2rem 0 .5rem;
+                display: block;
+                color: $secondary;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                transition: all ease-in-out .3s;
+                width: 100%;
+                background: transparent;
+                cursor: pointer;
+                box-shadow: 0 0 4px $secondary;
+                &:hover {
+                    background: $primary;
+                    color: $white;
+                }
+                &:disabled {
+                    background: $primary;
+                    color: $white;
+                    cursor: not-allowed;
+                    .icon {
+                        font-size: 1rem;
+                    }
+                }
+            }
+            .server-err-message {
+                color: $secondary;
+                font-size: .8rem;
+                text-align: center;
+                height: 1rem;
+                display: none;
+                margin-bottom: 1rem;
+                display: block
+            }
+        }
+        .sign-in-using {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            p {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+        .not-a-member, .forgot-password {
+            font-size: .8rem;
+            text-align: center;
+            margin: 1rem;
+            color: $primary;
+            display: block;
+            margin: 1rem auto;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 700px) {
+    .login-page .login-main-content {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 992px){
+    // .login-page {
+    //     min-height: calc(100vh - 60px);
+    // }
+    .login-page .login-main-content {
+        width: 30%;
+    }
+}
