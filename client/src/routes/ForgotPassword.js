@@ -1,11 +1,15 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import "../styles/forgotPassword.scss";
 import ForgotPasswordFirstComponent from "../components/ForgotPasswordFirstComponent"
 import ForgotPasswordSuccessComponent from "../components/ForgotPasswordSuccessComponent"
 import axios from "axios"
+import {UserContext} from "../context/UserContext";
+import Loader from "../components/Loader"
+import {Redirect} from "react-router-dom"
 
 const ForgotPassword = () => {
 
+    const {userData} = useContext(UserContext)
 
     const [usernameOrEmail, setUsernameOrEmail] = useState("")
     const [errMsg, setErrMsg] = useState("no error")
@@ -68,7 +72,9 @@ const ForgotPassword = () => {
 
     
 
+    if(!("id" in userData)) return <Loader />;
     
+    if (userData.id) return <Redirect to ='/dashboard' />;
             
 
     return (
