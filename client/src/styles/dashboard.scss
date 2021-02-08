@@ -130,7 +130,7 @@
             top: 50px;
             left: 0;
             width: 100%;
-            padding: 1rem;
+            padding: 1.5rem;
             background-color: $white;
             margin: 0;
             z-index: 2;
@@ -257,6 +257,7 @@
                     }
                     .card-body {
                         margin: 2rem 0;
+                        width: 100%;
                         .current {
                             font-size: .8rem;
                             color:rgba($black, .5);
@@ -270,7 +271,6 @@
                             border-radius: .2rem;
                         }
                         .submit-btn {
-                            // border: 1px solid $secondary;
                             margin-left: 0;
                             background-color: $primary;
                             color: $white;
@@ -301,6 +301,116 @@
         }
         100% {
             opacity: 1;
+        }
+    }
+}
+
+
+@media only screen and (min-width:768px) {
+    .page {
+        .dashboard {
+            .top-presentational-container {
+                height: 20rem;
+            }
+            .personal-info {
+                top: 14rem;
+                .profile-pic-container {
+                    width: 12rem;
+                    height: 12rem;
+                    div {
+                        width: 11rem;
+                        height: 11rem;
+                        div {
+                            width: 10.5rem;
+                            height: 10.5rem;
+                        }
+                    }
+                }
+            }
+
+            .sections {
+                margin-top: 12rem;
+                .section-title {
+                    font-size: 2rem;
+                }
+                .activities {
+                    margin: 2rem auto 4rem;
+                    width: 75%;
+                    .activity {
+                        padding: 1.5rem;
+                        .activity-icon {
+                            font-size: 5rem;
+                        }
+                        span {
+                            font-size: 1rem;
+                        }
+                        
+                    }
+                }
+            }
+        }
+
+        .user-settings {
+            .sticky-top {
+                padding: 1.5rem;
+                .arrow-back {
+                    font-size: 2rem;
+                }
+            }
+            .heading {
+                margin-top: 2rem;
+                h1 {
+                    font-size: 2rem;
+                }
+                
+            }
+            .settings-main {
+                width: 75%;
+                margin: 4rem auto;
+                .card-container {
+                    margin-top: 4rem;
+                    .card {
+                        height: 6rem;
+                        padding: 2.2rem;
+                        transition: height ease-in-out .3s;
+                        .card-title {
+                            font-size: 1.5rem;
+                        }
+                        .arrow-icon {
+                            font-size: 1.4rem;
+                            position: absolute;
+                            top: 2.5rem;
+                            right: 2rem;
+                            cursor: pointer;
+                        }
+                        .card-body {
+                            margin: 4rem 0;
+                            .current {
+                                font-size: 1rem;
+                                margin-bottom: .5rem;
+                            }
+                            .input-field {
+                                display: inline-block;
+                                padding: 1rem;
+                                border-radius: .4rem;
+                            }
+                            .submit-btn {
+                                margin-left: 1rem;
+                                background-color: $primary;
+                                color: $white;
+                                padding: 1rem;
+                                transition: padding ease-in-out .3s;
+                                &:hover {
+                                    padding: 1.2rem;
+                                }
+                            }
+                        }
+                    }
+                    .card-expand {
+                        height: 17rem;
+                    }
+                }
+            }
         }
     }
 }
