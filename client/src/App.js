@@ -26,7 +26,12 @@ function App() {
   const loadUser = () => {
     if(!localStorage.getItem("accessToken")) {
         delete axios.defaults.headers.common['Authorization']
-        setUserData({})
+        setUserData({
+          id: null,
+          username: null,
+          email: null,
+          avatar_url: null
+        })
         return;
     }
 
@@ -35,12 +40,22 @@ function App() {
 
     axios.get("api/user")
     .then(res => {
-        if(!res.data.status) return setUserData({})
+        if(!res.data.status) return setUserData({
+          id: null,
+          username: null,
+          email: null,
+          avatar_url: null
+        })
 
         setUserData(res.data.userData)
     })
     .catch(err => {
-        setUserData({})
+        setUserData({
+          id: null,
+          username: null,
+          email: null,
+          avatar_url: null
+        })
     })
   }
 
