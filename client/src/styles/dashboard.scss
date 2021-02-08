@@ -37,7 +37,7 @@
         
         .personal-info {
             position: absolute;
-            top: 8.5rem;
+            top: 7.5rem;
             right: 50%;
             transform: translateX(50%);
             display: flex;
@@ -310,19 +310,19 @@
     .page {
         .dashboard {
             .top-presentational-container {
-                height: 20rem;
+                height: 17rem;
             }
             .personal-info {
-                top: 14rem;
+                top: 11rem;
                 .profile-pic-container {
-                    width: 12rem;
-                    height: 12rem;
+                    width: 10rem;
+                    height: 10rem;
                     div {
-                        width: 11rem;
-                        height: 11rem;
+                        width: 9rem;
+                        height: 9rem;
                         div {
-                            width: 10.5rem;
-                            height: 10.5rem;
+                            width: 8.5rem;
+                            height: 8.5rem;
                         }
                     }
                 }
