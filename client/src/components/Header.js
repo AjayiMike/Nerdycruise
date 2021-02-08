@@ -64,11 +64,11 @@ const Header = ({handleShowSideNav}) => {
                 </nav>
                 {userData.id ? 
                     <div className = "user-account-icons">
-                        <div className = "notification-container" onClick = {gotoDashboard}>
+                        <div className = "notification-container">
                             <NotificationsIcon className = "notification-icon" />
                             <span className = "notification-badge">9</span>
                         </div>
-                        <div className = "user-profile-image-container">
+                        <div className = "user-profile-image-container" onClick = {gotoDashboard}>
                             <img src = {userData.avatar_url} alt = "user-account" />
                         </div>
                     </div> :  
