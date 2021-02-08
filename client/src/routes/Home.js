@@ -11,6 +11,7 @@ import celebration from "../images/celebration.svg";
 import AOS from "aos";
 import "aos/dist/aos.css"
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
+import Loader from "../components/Loader";
 
 
 
@@ -25,6 +26,7 @@ const Home = () => {
         AOS.refresh();
     }, [])
 
+    if(!("id" in userData)) return <Loader />;
 
     if (userData.id) return <Redirect to ='/dashboard' />;
 
