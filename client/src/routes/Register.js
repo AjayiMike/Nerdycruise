@@ -5,6 +5,7 @@ import RegisterSuccessComponent from "../components/RegistrationSuccessComponent
 import {checkUsernameExistence} from "../helper functions";
 import {UserContext} from "../context/UserContext";
 import axios from "axios"
+import Loader from "../components/Loader";
 
 
 const Register = () => {
@@ -192,6 +193,8 @@ const Register = () => {
         setShowPassword(prev => !prev)
 
     }
+
+    if(!("id" in userData)) return <Loader />;
 
     if (userData.id) return <Redirect to ='/dashboard' />;
 

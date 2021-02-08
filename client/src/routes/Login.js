@@ -9,6 +9,7 @@ import "../styles/login.scss";
 import {Link, Redirect} from "react-router-dom"
 import {HandleLabelPosition} from "../helper functions";
 import axios from "axios";
+import Loader from "../components/Loader"
 
 const Login = () => {
 
@@ -130,7 +131,8 @@ const Login = () => {
 
     
 
-
+    if(!("id" in userData)) return <Loader />;
+    
     if (userData.id) return <Redirect to ='/dashboard' />;
 
     return (
