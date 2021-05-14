@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV === "development") {
+    require('dotenv').config();
+}
+
 const express = require("express");
 const path = require("path")
 const port = process.env.PORT || 5000;
@@ -7,6 +11,7 @@ const actionRoute = require("./routes/actions")
 const userRoute = require("./routes/user")
 const axios = require("axios")
 const {randomBytes} = require("crypto")
+
 
 
 
