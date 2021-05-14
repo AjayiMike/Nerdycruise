@@ -23,9 +23,9 @@ app.use(express.json());
 if(process.env.NODE_ENV === "production") {
     // set static file
     app.use(express.static("client/build"))
-    app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname = "client/build/index.html"));
-    })
+    // app.get('*', (req, res) => {
+    //     res.sendFile(path.join(__dirname = "client/build/index.html"));
+    // })
 }
 
 
@@ -36,13 +36,7 @@ app.use("/api/action", actionRoute)
 app.use("/api/user", userRoute)
 
 
-// to be removed
-app.get("/", (req, res) => {
-    res.json("this is working oooo")
-})
 
-
-// lines below should only be for production but for the sake of ngrok
 app.use(express.static("client/build"))
 
 app.get('*', (req, res) => {
