@@ -5,10 +5,23 @@
     position: relative;
     .dashboard {
         animation: fadeIn ease-in-out .4s;
+        overflow-x: hidden;
         .top-presentational-container {
             width: 100%;
-            height: 13rem;
+            height: 10rem;
             background:  #234e70;
+            position: relative;
+            &::after {
+                content: "";
+                height: 10rem;
+                width: 140%;
+                background:#234e70;
+                position: absolute;
+                bottom: -40px;
+                left: -20%;
+                border-radius: 50%;
+                z-index: -1;
+            }
             // background-image: linear-gradient(to left top, #234e70, #1e4661, #1b3d52, #1a3544, #192c36, #1a262e, #192026, #171a1e, #151518, #110f12, #0a0809, #000000);
 
             div {
@@ -31,13 +44,14 @@
                         opacity: 1;
                     }
                 }
+                
             }
             
         }
         
         .personal-info {
             position: absolute;
-            top: 7.5rem;
+            top: 7rem;
             right: 50%;
             transform: translateX(50%);
             display: flex;
@@ -116,9 +130,6 @@
                 }
             }
         }
-
-
-        
     }
 
     .user-settings {
@@ -162,68 +173,82 @@
             margin-top: 2rem;
             padding: 0rem 2rem 2rem;
             .profile-pic-container {
-                width: 100%;
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
                 display: flex;
-                flex-direction: column;
                 align-items: center;
+                justify-content: center;
+                background-color: $primary;
+                margin: 0 auto;
+                position: relative;
                 .div-img {
-                    width: 120px;
-                    height: 120px;
+                    width: 116px;
+                    height: 116px;
                     border-radius: 50%;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    background-color: $primary;
-                    div {
-                        width: 110px;
-                        height: 110px;
+                    background-color: $white;
+                    position: relative;
+                    img {
+                        width: 100%;
+                    }
+                    .hover-overlay {
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        bottom: 0;
+                        right: 0;
                         border-radius: 50%;
-                        background-color: $white;
-                        position: relative;
-                        img {
-                            width: 100%;
+                        opacity: 0;
+                        background-color: $black;
+                        transition: opacity ease-in-out .3s;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        .camera-icon {
+                            color: $white;
+                            font-size: 1.5rem;
                         }
+                    }
+                    &:hover {
                         .hover-overlay {
-                            display: block;
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            bottom: 0;
-                            right: 0;
-                            border-radius: 50%;
-                            opacity: 0;
-                            background-color: $black;
-                            transition: opacity ease-in-out .3s;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            .camera-icon {
-                                color: $white;
-                                font-size: 2rem;
-                            }
-                        }
-                        &:hover {
-                            .hover-overlay {
-                                opacity: .9;
-                            }
+                            opacity: .8;
                         }
                     }
                     
 
                 }
-                .change-picture-btn {
-                    border: 1px solid $primary;
-                    border-radius: .4rem;
+                .camera-icon-container {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    border-radius: 50%;
+                    background: $white;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
                     transition: all ease-in-out .3s;
-                    padding: .7rem;
+                    box-shadow: 0px 0px 5px $primary;
+                    cursor: pointer;
                     .camera-icon {
-                        vertical-align: bottom;
+                        color: $primary;
+                        font-size: 1rem;
+                        transition: inherit;
                     }
                     &:hover {
-                        background-color: $primary;
-                        color: $white;
+                        width: 2.6rem;
+                        height: 2.6rem;
+                        .camera-icon {
+                            font-size: 1.1rem;
+                        }
                     }
                 }
+                .profile-pic-input {
+                    display: none;
+                }
+                
             }
             .card-container {
                 margin-top: 3rem;
@@ -310,22 +335,14 @@
     .page {
         .dashboard {
             .top-presentational-container {
-                height: 17rem;
+                height: 14rem;
+                &::after {
+                    content: "";
+                    height: 14rem;
+                }
             }
             .personal-info {
-                top: 11rem;
-                .profile-pic-container {
-                    width: 10rem;
-                    height: 10rem;
-                    div {
-                        width: 9rem;
-                        height: 9rem;
-                        div {
-                            width: 8.5rem;
-                            height: 8.5rem;
-                        }
-                    }
-                }
+                top: 10rem;
             }
 
             .sections {

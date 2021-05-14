@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index",
     "client": "npm start --prefix client",
+    "client:build": "cd client && npm run build",
     "server": "nodemon server",
     "dev": "concurrently \"npm run client\" \"npm run server\""
   },
@@ -18,8 +19,9 @@
   "author": "AJAYI ADEKUNLE MICHAEL",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.25.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "google-auth-library": "^6.1.3",

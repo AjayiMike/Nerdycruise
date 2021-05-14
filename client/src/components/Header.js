@@ -13,20 +13,24 @@ const Header = ({handleShowSideNav}) => {
     const history = useHistory()
 
     const [isSmallScreen, setIsSmallScreen] = useState();
-    useEffect(() => {
+
+    const setScreenSize = () => {
         if(window.screen.width < 992) {
             setIsSmallScreen(true)
         } else {
             setIsSmallScreen(false)
         }
+    }
+
+    useEffect(() => {
+        
+        setScreenSize()
+        
     }, [])
 
     const onResize = () => {
-        if (window.screen.width >= 992) {
-            setIsSmallScreen(false);
-        } else {
-            setIsSmallScreen(true);
-        }
+        
+        setScreenSize()
     }
 
     window.addEventListener("resize", onResize);

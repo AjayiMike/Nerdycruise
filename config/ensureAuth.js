@@ -9,8 +9,6 @@ const ensureAuth = (req, res, next) => {
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, payload) => {
         if(err) return next()
 
-        
-
         pool.connect(async (err, client, release) => {
             if(err) throw "error connecting to database"
             try {

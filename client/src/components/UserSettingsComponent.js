@@ -3,6 +3,7 @@ import ArrowBack from '@material-ui/icons/ArrowBack';
 import {FiCamera} from "react-icons/fi"
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {IconContext} from "react-icons"
+import axios from "axios"
 
 const UserSettingsComponent = ({userData, CloseSettings}) => {
 
@@ -18,6 +19,8 @@ const UserSettingsComponent = ({userData, CloseSettings}) => {
         value: "",
         error: null
     })
+
+    const [picture, setPicture] = useState(null)
 
     const newEmailChange = (e) => {
         
@@ -50,6 +53,31 @@ const UserSettingsComponent = ({userData, CloseSettings}) => {
         })
 
     }
+
+    const handlePicChange = (e) => {
+
+        setPicture(() => e.target.files[0])
+
+        uploadInputedPic()
+    }
+
+    const uploadInputedPic = () => {
+
+        if(!picture) return;
+
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(picture)
+        fileReader.onloadend = () => {
+            axios.post("api/user/profile-pic-upload", {imageSrc: fileReader.result})
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+    }
+
     return (
         <div className = "user-settings">
             <div className = "sticky-top">
@@ -63,15 +91,15 @@ const UserSettingsComponent = ({userData, CloseSettings}) => {
             <div className = "settings-main">
                 <div className = "profile-pic-container">
                     <div className = "div-img">
-                        <div>
-                            <img src = {userData.avatar_url} alt = "profile" />
-                            <span className = "hover-overlay">
-                                <IconContext.Provider value = {{className: "camera-icon"}}><FiCamera/></IconContext.Provider>
-                            </span>
-                        </div>
+                        <img src = {userData.avatar_url} alt = "profile" />
+                        <span className = "hover-overlay">
+                            <IconContext.Provider value = {{className: "camera-icon"}}><FiCamera/></IconContext.Provider>
+                        </span>
                     </div>
-                    <button className = "gen-btn change-picture-btn">change picture <IconContext.Provider value = {{className: "camera-icon"}}><FiCamera/></IconContext.Provider></button>
+                    <button onClick = {(e) => {e.currentTarget.nextElementSibling.click()}} className = "camera-icon-container"><IconContext.Provider value = {{className: "camera-icon"}}><FiCamera/></IconContext.Provider></button>
+                    <input type = "file" className = "profile-pic-input"accept = "image/*" onChange = {handlePicChange}/>
                 </div>
+                
                 <div className = "card-container">
                 <div className = "card">
                     <h1 className = "card-title">Change Email</h1>

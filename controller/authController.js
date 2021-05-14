@@ -277,10 +277,8 @@ exports.googleAuthController = (req, res) => {
 
         name = name.split(' ')
         const username = `${name[0]}_${name[1].charAt(0)}${Math.ceil(Math.random() * 10000)}`.toLowerCase()
-
         // generate a random string to be used as id
         const id = generateID()
-
         // generate unique default avatar based on the id
         const avatar_url = `https://robohash.org/${id}?set=set3`
 
@@ -303,6 +301,7 @@ exports.googleAuthController = (req, res) => {
               });
             })
             .catch(err => {
+              console.log("db err: ", err)
               res.json({
                 status: false,
                 message: "somethng went wrong"

@@ -1,5 +1,5 @@
 
-
+const cloudinary = require("../config/cloudinary")
 
 // 
 
@@ -20,5 +20,28 @@ exports.userDataController = (req, res) => {
         status: true,
         userData
     })
+    
+}
+
+exports.profilePicUploadController = async (req, res) => {
+    try {
+        cloudinary.uploader.upload(req.body.imageSrc, {upload_preset: "profile_pictures"})
+        .then(data => {
+            console.log(data)
+
+            res.json({
+                status: true,
+            })
+        }).catch(err => {
+            console.log("cloudinary err: ", err)
+        })
+        
+        
+    } catch(err) {
+        console.log(err)
+        res.json({
+            status: false,
+        })
+    }
     
 }
